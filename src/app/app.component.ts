@@ -10,6 +10,7 @@ import { from, fromEvent } from 'rxjs';
 export class AppComponent implements OnInit {
   title = 'curso-angular';
 
+  name = 'mariana';
 
 ngOnInit() {
   
@@ -21,6 +22,10 @@ saveClickChild(event) {
 
 saveClickChildHomework(event){
   console.log('Event: ', event);
+}
+
+changeName() {
+  this.name = 'juan';
 }
 
 }
