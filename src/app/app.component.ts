@@ -12,17 +12,15 @@ export class AppComponent implements OnInit {
 
 
 ngOnInit() {
-  //Ejemplo 1
-  //observable, array = youtube
-  const array = from([1,2,3,4,5,6]);
-  array.subscribe(s => console.log('item: ', s)) 
+  
+}
 
-  //Ejemplo 2
-  //movimiento del mouse
-  const aux = fromEvent(document, 'mousemove');
-  aux.subscribe(s => console.log('event: ', s.clientX + '.s ' + s.clientY));
+saveClickChild(event) {
+  console.log('Event Child: ', event);
+}
 
-
+saveClickChildHomework(event){
+  console.log('Event: ', event);
 }
 
 }
