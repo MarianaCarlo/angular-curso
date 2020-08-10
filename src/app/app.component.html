@@ -1,9 +1,12 @@
 <p>Mariana</p>
 
 <div style="border:1px solid green">
-  <app-test *ngIf="sw" name="mariana"></app-test>
-
+  
+ 
   <button (click)="sw = false;">Changes sw</button>
+  <div *ngFor="let person of persons; let i =index">
+    <p>{{person}}===={{i}}</p>
+  </div>
 </div>
 
 
