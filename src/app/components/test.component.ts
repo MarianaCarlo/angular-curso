@@ -2,8 +2,15 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, Aft
 
 @Component({
   selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+  template: `
+  <div>
+  <p>TEST1</p>
+  <input type="text" [(ngModel)]="name">
+
+  <P>VALOR VAR NAME: {{name}}</P>
+  </div>
+  `
+  
 })
 export class TestComponent implements OnInit, OnChanges  ,DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
   @Input() name:string = 'mariana';
