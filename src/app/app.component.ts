@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'curso-angular';
 
   name = 'mariana';
+  sw = true;
 
 ngOnInit() {
   

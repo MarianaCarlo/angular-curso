@@ -1,17 +1,9 @@
 <p>Mariana</p>
 
 <div style="border:1px solid green">
-  <app-test 
-    age=3 
-    (clickAge)="saveClickChild($event)" 
-    [name]="name" 
-    age2=20  
-    description="student UPB" 
-    (clickHomework)="saveClickChildHomework($event)">
-  </app-test>
+  <app-test *ngIf="sw" name="mariana"></app-test>
 
-<button (click)=changeName()>change name</button>
-
+  <button (click)="sw = false;">Changes sw</button>
 </div>
-<br>
+
 
