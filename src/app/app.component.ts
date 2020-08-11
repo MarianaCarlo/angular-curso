@@ -10,28 +10,37 @@ import { from, fromEvent } from 'rxjs';
 export class AppComponent implements OnInit {
   title = 'curso-angular';
 
-  name = 'mariana';
-  sw = true;
-  aux = 3;
-  persons = ['marco','juan','jose','lupe'];
-
-  auxColor = 'red';
-  auxClass = true;
+  persons = [
+    {
+      name: 'mariana',
+      lastName: 'carlo',
+      age: 20,
+      enable: true
+    },
+    {
+      name: 'juan',
+      lastName: 'vasquez',
+      age: 24,
+      enable: true
+    },
+    {
+      name: 'rodrigo',
+      lastName: 'perez',
+      age: 21,
+      enable: false
+    },
+    {
+      name: 'andres',
+      lastName: 'castillo',
+      age: 25,
+      enable: false
+    }
+  ]
 
 ngOnInit() {
   
 }
 
-saveClickChild(event) {
-  console.log('Event Child: ', event);
-}
 
-saveClickChildHomework(event){
-  console.log('Event: ', event);
-}
-
-changeName() {
-  this.name = 'juan';
-}
 
 }
