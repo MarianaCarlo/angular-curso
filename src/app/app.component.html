@@ -30,3 +30,16 @@
 <div [style.color]="auxColor">
   autos
 </div>
+
+
+
+
+<button (click)="auxClass = !auxClass">Change class</button>
+<div [ngClass]="{'test1': auxClass, 'test2': !auxClass }">
+  ng class example
+</div>
+
+<!--Aplicado a una sola clase en base a una restriccion que tengamos-->
+<div [class.test1]="auxClass">
+  class example
+</div>
