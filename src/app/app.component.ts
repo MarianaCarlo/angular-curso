@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   name = 'mariana';
   sw = true;
-
+  aux = 3;
   persons = ['marco','juan','jose','lupe'];
 
 ngOnInit() {
