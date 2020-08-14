@@ -10,6 +10,9 @@
 
 <p>VAR NAME: {{name | test}}</p>
 
+VALUE: <input type="text" [(ngModel)]="auxNumber">
+<br>
+EXPONENT: <input type="text" [(ngModel)]="auxExponent">
 
-<p>{{ 4 | expo: 2 }}</p>
+<p>{{ auxNumber | expo: auxExponent : 'hola' }}</p>
 
