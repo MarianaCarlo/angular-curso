@@ -1,0 +1,13 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'impure',
+  pure: false
+})
+export class ImpurePipe implements PipeTransform {
+
+  transform(data: any, args?: any): any {
+    return data.filter(s => s%2 === 0);
+  }
+
+}
