@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { from, fromEvent } from 'rxjs';
 
@@ -8,6 +8,11 @@ import { from, fromEvent } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+ @HostListener('window: resize', ['$event']) onResize(event) {
+    console.log('WINDOW RESIZE', event.target.innerWidth);
+  }
+
   title = 'curso-angular';
   numbers = [1,2,3,4,5,6,7,8,9,10];
 
