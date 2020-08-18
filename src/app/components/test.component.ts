@@ -1,43 +1,68 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, SimpleChange } from '@angular/core';
 
 @Component({
-  selector: 'app-test',
+  selector: "person",
   template: `
   <div>
   <p>TEST1</p>
-  <input type="text" [(ngModel)]="name">
+  <p>NAME: {{name}}</p>
 
-  <P>VALOR VAR NAME: {{name}}</P>
+  <p>LAST NAME: {{lastName}}</p>
   </div>
   `
   
 })
-export class TestComponent implements OnInit, OnChanges  ,DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
-  @Input() name:string = 'mariana';
+export class TestComponent implements OnInit, OnChanges {
+
+  //@Input() name: string;
+  intermediate: string;
+
+  @Input()
+    //cada vez que quiera utilizarlo
+    get name() {
+      return this.intermediate;
+    }
+    //cada vez que se cambie
+    set name(name:string) {
+      this.intermediate = 'aaaadasdaaaasafweaa' + name;
+    }
+
+  @Input() lastName: string;
+
+  
   constructor() { }
 
-  ngOnInit(): void {
-    console.log('ON INIT');
+  ngOnInit() {
+    console.log('ON INIT', this.name);
   }
-  ngOnChanges(){
-    console.log('ON CHANGES');
+
+  ngOnChanges(changes: SimpleChange){
+    if (changes && changes.lastName && changes.lastName.currentValue){
+      console.log('ON CHANGES', changes.lastName.currentValue);
+      const aux = 'aaa' + changes.lastName.currentValue;
+      this.lastName = aux;
+    }
   }
-  ngDoCheck(){
-    console.log('DO CHECK');
-  }
-  ngAfterContentInit(){
-    console.log('AFTER CONTENT INIT');
-  }
-  ngAfterContentChecked(){
-    console.log('AFTER CONTENT CHECKED');
-  }
-  ngAfterViewInit(){
-    console.log('AFTER VIEW INIT');
-  }
-  ngAfterViewChecked(){
-    console.log('AFTER VIEW CHECKED');
-  }
-  ngOnDestroy(){
-    console.log('ON DESTROY');
-  }
+  
 }
+
+
+
+/*
+class persona {
+  name: string;
+  age:number;
+
+  constructor(){
+
+  }
+
+  getName(){
+    return name;
+  }
+  setName(name:string){
+    this.name = name;
+  }
+
+}
+*/
