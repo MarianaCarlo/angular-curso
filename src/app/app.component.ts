@@ -7,10 +7,10 @@ import { from, fromEvent } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, DoCheck {
+export class AppComponent implements OnInit {
 
   title = 'curso-angular';
-
+  i = 111;
   name = 'mariana';
   lastName = 'carlo';
 
@@ -92,12 +92,11 @@ totalStock(){
   return aux;
 }
 
+//index = this.tickets.findIndex(s => s.nombre="KARKAS")
+
+
 ngOnInit() {
   console.log('PURA: ');
-}
-
-ngDoCheck() {
-  
 }
 
 

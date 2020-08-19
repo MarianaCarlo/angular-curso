@@ -12,9 +12,7 @@ import { NgColorDirective } from './directives/ng-color.directive';
 import { NgFocusDirective } from './directives/ng-focus.directive';
 import { SuperticketComponent } from './modules/superticket/components/superticket/superticket.component';
 import { SuperticketModule } from './modules/superticket/superticket.module';
-import { HabilitarPipe } from './pipes/habilitar.pipe';
-
-
+import { CambioPipe } from './pipes/cambio.pipe';
 
 
 
@@ -29,13 +27,13 @@ import { HabilitarPipe } from './pipes/habilitar.pipe';
     TestComponent, 
     NgFocusDirective,
     SuperticketComponent,
+    CambioPipe
     
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    SuperticketModule,
-    HabilitarPipe
+    SuperticketModule
   ],
   providers: [
 

@@ -6,6 +6,10 @@
 
 <br>
 
+<div style="background: green: font-size: 25px;" *ngIf="i === 0">TODOS YA VOTARON</div>
+
+
+
 <div style="background: lightBlue; font-size: 25px;">
   NACIONAL 
 </div>
@@ -20,7 +24,7 @@
     </superticket>
   </div>
   
- <button >Comprar</button>
+ <button (click)="ticket.stock !== 0 ? ticket.stock = ticket.stock-1 : ticket.stock = 0; i=i-1">Comprar</button>
 </div>
 
 <br>
@@ -38,6 +42,6 @@
     </superticket>
   </div>
   
- <button >Comprar</button>
+ <button (click)="ticket.stock !== 0 ? ticket.stock = ticket.stock-1 : ticket.stock = 0; i=i-1">Comprar</button>
 </div>
 
