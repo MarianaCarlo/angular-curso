@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, DoCheck } from '@angular/core';
 
 import { from, fromEvent } from 'rxjs';
 
@@ -7,62 +7,98 @@ import { from, fromEvent } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-
- @HostListener('window: resize', ['$event']) onResize(event) {
-    console.log('WINDOW RESIZE', event.target.innerWidth);
-  }
+export class AppComponent implements OnInit, DoCheck {
 
   title = 'curso-angular';
-  numbers = [1,2,3,4,5,6,7,8,9,10];
 
   name = 'mariana';
   lastName = 'carlo';
 
-  persons = [
+  tickets = [
     {
-      name: 'mariana',
-      lastName: 'carlo',
-      age: 20,
-      enable: true
+      nombre : "bad bunny", 
+      stock:1, 
+      habilitado : true, 
+      tipo : "internacional"
     },
     {
-      name: 'juan',
-      lastName: 'vasquez',
-      age: 24,
-      enable: true
+      nombre : "karkas", 
+      stock:2, 
+      habilitado : true, 
+      tipo : "nacional"
     },
     {
-      name: 'rodrigo',
-      lastName: 'perez',
-      age: 21,
-      enable: false
+      nombre : "ozuna", 
+      stock: 0, 
+      habilitado : false, 
+      tipo : "internacional"
     },
     {
-      name: 'andres',
-      lastName: 'castillo',
-      age: 25,
-      enable: false
+      nombre : "PK2", 
+      stock: 45, 
+      habilitado : true, 
+      tipo : "nacional"
+    },
+    {
+      nombre : "Octavia", 
+      stock: 20, 
+      habilitado : true, 
+      tipo : "nacional"
+    },
+    {
+      nombre : "julieta venegas", 
+      stock: 1, 
+      habilitado : true, 
+      tipo : "internacional"
+    },
+    {
+      nombre : "rumba 7", 
+      stock: 4, 
+      habilitado : true, 
+      tipo : "nacional"
+    },
+    {
+      nombre : "metalica", 
+      stock: 0, 
+      habilitado : false, 
+      tipo : "internacional"
+    },
+    {
+      nombre : "alcoholica", 
+      stock: 33, 
+      habilitado : true, 
+      tipo : "nacional"
+    },
+    {
+      nombre : "juanes", 
+      stock: 0, 
+      habilitado : false, 
+      tipo : "internacional"
     }
   ]
 
+nacional = this.tickets.filter(s => s.tipo === 'nacional');
+internacional = this.tickets.filter(s => s.tipo === 'internacional');
 
-auxNumber: number = 3;
-auxExponent: number = 2;
+//totalStock = this.tickets.reduce((a, v) => a + v.stock);
+
+
+
+totalStock(){
+  let aux= 0;
+  for(let i = 0; i<this.tickets.length; i++){
+    aux = aux + this.tickets[i].stock;
+  }
+  return aux;
+}
 
 ngOnInit() {
-  console.log('PURA: ',this.pura(2,2));
-  console.log('PURA: ',this.impura(2,2));
+  console.log('PURA: ');
 }
 
-//FUNCIÓN PURA SUMA
-pura(a:number, b:number){
-  return a+b;
+ngDoCheck() {
+  
 }
 
-//FUNCIÓN IMPURA SUMA
-impura(a:number, b:number){
-  return a+b + Math.random();
-}
 
 }

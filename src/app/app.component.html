@@ -1,3 +1,43 @@
-<p>Mariana</p>
+<p>BIENVENIDO  A SUPERTICKET</p> 
 
-<div style="border: 1px solid green;" (appNgFocus)="name = 'aaaaaaaaaaaaaaaaaaa'">{{name}}</div>
+<div style="background: blue; font-size: 25px;">
+  <p>Total Stock: {{totalStock()}}</p>
+</div>
+
+<br>
+
+<div style="background: lightBlue; font-size: 25px;">
+  NACIONAL 
+</div>
+<br>
+
+<div *ngFor="let ticket of nacional">
+  <div [ngStyle]="{'background': ticket.stock===0 ? 'red' : 'orange'}">
+    <superticket
+      [nombre]="ticket.nombre" 
+      [stock]="ticket.stock" 
+      [habilitado]="ticket.habilitado">
+    </superticket>
+  </div>
+  
+ <button >Comprar</button>
+</div>
+
+<br>
+<div style="background: lightBlue; font-size: 25px;">
+  INTERNACIONAL
+</div>
+<br>
+
+<div *ngFor="let ticket of internacional">
+  <div [ngStyle]="{'background': ticket.stock===0 ? 'red' : 'orange'}">
+    <superticket
+      [nombre]="ticket.nombre" 
+      [stock]="ticket.stock" 
+      [habilitado]="ticket.habilitado">
+    </superticket>
+  </div>
+  
+ <button >Comprar</button>
+</div>
+
