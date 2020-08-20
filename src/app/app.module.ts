@@ -10,7 +10,6 @@ import { NgFocusDirective } from './directives/ng-focus.directive';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { AdminComponent } from './components/admin/admin.component';
-
 import { AppRoutingModule } from './app-routing.module';
 
 
