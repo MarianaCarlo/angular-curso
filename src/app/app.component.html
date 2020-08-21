@@ -1,4 +1,4 @@
-<p>BIENVENIDO  A SUPERTICKET</p> 
+<p>BIENVENIDO  A SUPERTICKET</p>
 
 <div style="background: blue; font-size: 25px;">
   <p>Total Stock: {{totalStock()}}</p>
@@ -11,19 +11,19 @@
 
 
 <div style="background: lightBlue; font-size: 25px;">
-  NACIONAL 
+  NACIONAL
 </div>
 <br>
 
 <div *ngFor="let ticket of nacional">
   <div [ngStyle]="{'background': ticket.stock===0 ? 'red' : 'orange'}">
     <superticket
-      [nombre]="ticket.nombre" 
-      [stock]="ticket.stock" 
+      [nombre]="ticket.nombre"
+      [stock]="ticket.stock"
       [habilitado]="ticket.habilitado">
     </superticket>
   </div>
-  
+
  <button (click)="ticket.stock !== 0 ? ticket.stock = ticket.stock-1 : ticket.stock = 0; i=i-1">Comprar</button>
 </div>
 
@@ -36,12 +36,12 @@
 <div *ngFor="let ticket of internacional">
   <div [ngStyle]="{'background': ticket.stock===0 ? 'red' : 'orange'}">
     <superticket
-      [nombre]="ticket.nombre" 
-      [stock]="ticket.stock" 
+      [nombre]="ticket.nombre"
+      [stock]="ticket.stock"
       [habilitado]="ticket.habilitado">
     </superticket>
   </div>
-  
+
  <button (click)="ticket.stock !== 0 ? ticket.stock = ticket.stock-1 : ticket.stock = 0; i=i-1">Comprar</button>
 </div>
 

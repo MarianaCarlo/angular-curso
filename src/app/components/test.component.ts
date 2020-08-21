@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, SimpleChange, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: "person",
@@ -10,7 +10,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, Aft
   <p>LAST NAME: {{lastName}}</p>
   </div>
   `
-  
+
 })
 export class TestComponent implements OnInit, OnChanges {
 
@@ -29,21 +29,21 @@ export class TestComponent implements OnInit, OnChanges {
 
   @Input() lastName: string;
 
-  
+
   constructor() { }
 
   ngOnInit() {
     console.log('ON INIT', this.name);
   }
 
-  ngOnChanges(changes: SimpleChange){
-    if (changes && changes.lastName && changes.lastName.currentValue){
+  ngOnChanges(changes: SimpleChanges){
+    /*if (changes && changes.lastName && changes.lastName.currentValue){
       console.log('ON CHANGES', changes.lastName.currentValue);
       const aux = 'aaa' + changes.lastName.currentValue;
       this.lastName = aux;
-    }
+    }*/
   }
-  
+
 }
 
 

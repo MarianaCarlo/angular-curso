@@ -1,3 +1,7 @@
+import { ProviderModule } from './modules/provider/provider.module';
+import { ConcertModule } from './modules/concert/concert.module';
+
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -23,17 +27,19 @@ import { CambioPipe } from './pipes/cambio.pipe';
     ExpoPipe,
     ImpurePipe,
     PurePipe,
-    NgColorDirective, 
-    TestComponent, 
+    NgColorDirective,
+    TestComponent,
     NgFocusDirective,
     SuperticketComponent,
-    CambioPipe
-    
+    CambioPipe,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    SuperticketModule
+    SuperticketModule,
+    ConcertModule,
+    ProviderModule
   ],
   providers: [
 
