@@ -1,12 +1,10 @@
+import { ProviderModule } from './modules/provider/provider.module';
+import { ConcertModule } from './modules/concert/concert.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { PersonaModule } from './modules/persona/persona.module';
-import { TestPipe } from './pipes/test.pipe';
-import { NgColorDirective } from './directives/ng-color.directive';
-import { NgFocusDirective } from './directives/ng-focus.directive';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -18,9 +16,6 @@ import { Home2Component } from './components/home2/home2.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TestPipe,
-    NgColorDirective,
-    NgFocusDirective,
     HomeComponent,
     AboutComponent,
     AdminComponent,
@@ -30,8 +25,9 @@ import { Home2Component } from './components/home2/home2.component';
   imports: [
     BrowserModule,
     FormsModule,
-    PersonaModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ConcertModule,
+    ProviderModule
   ],
   providers: [
 

@@ -21,22 +21,10 @@ export class AppComponent implements OnInit {
 
   persons = [
     {
-      name: 'mariana',
-      lastName: 'carlo',
-      age: 20,
-      enable: true
-    },
-    {
       name: 'juan',
       lastName: 'vasquez',
       age: 24,
       enable: true
-    },
-    {
-      name: 'rodrigo',
-      lastName: 'perez',
-      age: 21,
-      enable: false
     },
     {
       name: 'andres',
@@ -51,18 +39,8 @@ auxNumber: number = 3;
 auxExponent: number = 2;
 
 ngOnInit() {
-  console.log('PURA: ',this.pura(2,2));
-  console.log('PURA: ',this.impura(2,2));
+
 }
 
-//FUNCIÓN PURA SUMA
-pura(a:number, b:number){
-  return a+b;
-}
-
-//FUNCIÓN IMPURA SUMA
-impura(a:number, b:number){
-  return a+b + Math.random();
-}
 
 }
