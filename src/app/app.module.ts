@@ -25,7 +25,7 @@ import {MatIconModule} from '@angular/material/icon';
     AppRoutingModule,
     NgbModule,
     MatSliderModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [
 
