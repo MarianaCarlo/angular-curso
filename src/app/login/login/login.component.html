@@ -3,3 +3,16 @@
 
 <button type="button"  style="border: 4px solid orange" class="btn btn-outline-warning"
 routerLink="/pages">LOGIN</button>
+
+<br>
+<br>
+<div #test   class="class1 class2" id="test2">HOLA</div>
+
+
+<button style="background: skyBlue" (click)="sw = !sw;">Switch</button>
+<div *ngIf="sw else esFalso">es verdad</div>
+
+
+<ng-template #esFalso>
+  <p>ES FALSO</p>
+</ng-template>
