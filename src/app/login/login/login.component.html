@@ -6,13 +6,26 @@ routerLink="/pages">LOGIN</button>
 
 <br>
 <br>
-<div #test   class="class1 class2" id="test2">HOLA</div>
-
-
-<button style="background: skyBlue" (click)="sw = !sw;">Switch</button>
-<div *ngIf="sw else esFalso">es verdad</div>
-
-
-<ng-template #esFalso>
-  <p>ES FALSO</p>
+<!--
+<div *ngIf="1 === 1">
+  HOLA
+</div>
+<ng-template [ngIf]="1 === 1">
+  HOLA
 </ng-template>
+-->
+<!--
+<ng-container *ngFor="let item of [1,2,3,4]">
+  <p>item container</p>
+</ng-container>
+
+<div *ngFor="let item of [1,2,3,4]">
+  <p>item div</p>
+</div>
+
+<app-test>
+  <button>hola</button>
+</app-test>-->
+<button (click)="sw=!sw">Switch</button>
+<p>{{sw}}</p>
+<p *ngElse ="sw">SE MUESTRA SI ES FALSO</p>
