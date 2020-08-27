@@ -1,3 +1,4 @@
+import { ProductService } from './../../services/product.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +14,9 @@ import {MatButtonModule} from '@angular/material/button';
     HomeRoutingModule,
     MatCardModule,
     MatButtonModule
-  ]
+  ],
+  providers: [
+    ProductService
+  ],
 })
 export class HomeModule { }
