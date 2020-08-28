@@ -1,0 +1,32 @@
+{
+    "products": {
+      "p1": {
+        "description": "abs",
+        "imageURL": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+        "ownerId": 1,
+        "price": 12,
+        "title": "salteñas"
+      },
+      "p2": {
+        "description": "abs",
+        "imageURL": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+        "ownerId": 1,
+        "price": 23,
+        "title": "hamburguesas"
+      },
+      "p3": {
+        "description": "abs",
+        "imageURL": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+        "ownerId": 1,
+        "price": 50,
+        "title": "pizzas"
+      },
+      "p4":{
+        "description": "abs",
+        "imageURL": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+        "ownerId": 1,
+        "price": 15,
+        "title": "refrescos"
+      }
+    }
+}

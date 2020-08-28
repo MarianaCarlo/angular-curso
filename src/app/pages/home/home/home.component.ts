@@ -7,13 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  //damy data
+  // damy data
   products = [];
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe( res => {
+      // {key: 1}, {key: 2}.{key: 3}
+      // Object entries convierte JSON en un array especial como: [ [key, 1], [key, 2], [key, 3]]
+        console.log('RESPUESTA: ', Object.entries(res));
+        Object.entries(res).map(p => this.products.push(p[1]));
+      }
+    );
+
   }
 
 }
