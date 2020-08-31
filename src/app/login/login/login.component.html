@@ -1,11 +1,48 @@
 <p>login works!</p>
 
+<!--EJEMPLO 1-->
+<!-- <div style="display : flex; flex-direction: column;">
+  <input type="text" [(ngModel)]="username">
+  <input type="password" [(ngModel)]="password">
+</div>
 
+<button (click)="onLogin();">LOGIN</button>
+-->
+
+
+
+<!--EJEMPLO 2-->
+<!-- <div style="display : flex; flex-direction: column;">
+  <form #form="ngForm">
+  <input type="text" name="username" ngModel>
+  <input type="password"name="password" ngModel>
+  </form>
+</div>
+<button (click)="onLogin2(form)">LOGIN 2</button> -->
+
+
+
+<!--EJEMPLO 3-->
+<div style="display : flex; flex-direction: column;">
+  <form (ngSubmit)="onLogin2(form)"  #form="ngForm">
+  Username:<input type="text" name="username" ngModel><br>
+  Password:<input type="password"name="password" ngModel><br>
+  <button type="submit">ENVIAR</button>
+  </form>
+</div>
+
+<!--
 <button type="button"  style="border: 4px solid orange" class="btn btn-outline-warning"
 routerLink="/pages">LOGIN</button>
+-->
 
 <br>
 <br>
+
+<button (click)="sw=!sw">Switch</button>
+<p>{{sw}}</p>
+<p *ngElse ="sw">SE MUESTRA SI ES FALSO</p>
+
 <!--
 <div *ngIf="1 === 1">
   HOLA
@@ -26,6 +63,3 @@ routerLink="/pages">LOGIN</button>
 <app-test>
   <button>hola</button>
 </app-test>-->
-<button (click)="sw=!sw">Switch</button>
-<p>{{sw}}</p>
-<p *ngElse ="sw">SE MUESTRA SI ES FALSO</p>

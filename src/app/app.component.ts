@@ -9,12 +9,8 @@ import { from, fromEvent } from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
- @HostListener('window: resize', ['$event']) onResize(event) {
-    console.log('WINDOW RESIZE', event.target.innerWidth);
-  }
-
   title = 'curso-angular';
-  numbers = [1,2,3,4,5,6,7,8,9,10];
+  numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   name = 'mariana';
   lastName = 'carlo';
@@ -44,25 +40,11 @@ export class AppComponent implements OnInit {
       age: 25,
       enable: false
     }
-  ]
+  ];
 
+  ngOnInit() {
 
-auxNumber: number = 3;
-auxExponent: number = 2;
+  }
 
-ngOnInit() {
-  console.log('PURA: ',this.pura(2,2));
-  console.log('PURA: ',this.impura(2,2));
-}
-
-//FUNCIÓN PURA SUMA
-pura(a:number, b:number){
-  return a+b;
-}
-
-//FUNCIÓN IMPURA SUMA
-impura(a:number, b:number){
-  return a+b + Math.random();
-}
 
 }

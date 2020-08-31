@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgElseDirective } from './../directives/ng-else.directive';
 import { LoginRoutingModule } from './login-routing.module';
 import { NgModule } from '@angular/core';
@@ -8,8 +9,13 @@ import { TestComponent } from './login/test/test.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, TestComponent, NgElseDirective],
+  declarations: [
+    LoginComponent,
+    TestComponent,
+    NgElseDirective
+  ],
   imports: [
+    FormsModule,
     CommonModule,
     LoginRoutingModule
   ]
