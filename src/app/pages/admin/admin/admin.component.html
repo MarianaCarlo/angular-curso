@@ -1,1 +1,22 @@
 <p>admin works!</p>
+
+<!--EJEMPLO 1-->
+<!-- <div>
+  <input type="text" [formControl]="nameControl">
+  <button (click)="onEnviar()">ENVIAR</button>
+</div> -->
+
+<!--EJEMPLO 2-->
+<div style="display : flex; flex-direction: column;">
+  <form [formGroup]="productForm">
+    Description: <input formControlName="description" type="text"><br>
+    ImageURL: <input formControlName="imageURL" type="text"><br>
+    OwnerId: <input formControlName="ownerId" type="text"><br>
+    Price: <input formControlName="price" type="text"><br>
+    Title: <input formControlName="title" type="text"><br>
+  </form>
+</div>
+
+<button (click)="onEnviar2()">ENVIAR 2</button>
+
+
