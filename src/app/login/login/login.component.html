@@ -23,13 +23,33 @@
 
 
 <!--EJEMPLO 3-->
-<div style="display : flex; flex-direction: column;">
+<!-- <div style="display : flex; flex-direction: column;">
   <form (ngSubmit)="onLogin2(form)"  #form="ngForm">
   Username:<input type="text" name="username" ngModel><br>
   Password:<input type="password"name="password" ngModel><br>
   <button type="submit">ENVIAR</button>
   </form>
+</div> -->
+
+<input class="form-control" type="text" required minlength="3" maxlength="5" #name="ngModel" ngModel>
+
+<div *ngIf="name.invalid && (name.touched || name.dirty)" class="alert alert-danger">
+
+  <div *ngIf="name.errors.required">
+    NAME IS REQUIRED
+  </div>
+
+  <div *ngIf="name.errors.minlength">
+    NAME MUST HAVE 3 CHARACTERS MIN
+  </div>
+
+  <div *ngIf="name.errors.maxlength">
+    NAME MUST HAVE 5 CHARACTERS MAX
+  </div>
+
 </div>
+
+
 
 <!--
 <button type="button"  style="border: 4px solid orange" class="btn btn-outline-warning"
@@ -39,9 +59,9 @@ routerLink="/pages">LOGIN</button>
 <br>
 <br>
 
-<button (click)="sw=!sw">Switch</button>
+<!-- <button (click)="sw=!sw">Switch</button>
 <p>{{sw}}</p>
-<p *ngElse ="sw">SE MUESTRA SI ES FALSO</p>
+<p *ngElse ="sw">SE MUESTRA SI ES FALSO</p> -->
 
 <!--
 <div *ngIf="1 === 1">
