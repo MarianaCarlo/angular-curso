@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { ProductService } from './../../services/product.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,7 +15,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     ReactiveFormsModule,
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    HttpClientModule
+  ],
+  providers: [
+    ProductService
   ]
 })
 export class AdminModule { }

@@ -10,4 +10,8 @@ export class ProductService {
   public getProducts(): Observable<any> {
     return this.http.get('https://course-angular-upb.firebaseio.com/products.json');
   }
+
+  public addProducts(product: any): Observable<any> {
+    return this.http.post('https://course-angular-upb.firebaseio.com/products.json', product);
+  }
 }
