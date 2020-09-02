@@ -1,5 +1,71 @@
 <p>admin works!</p>
 
+
+<mat-drawer-container class="example-container" style="width: 100%; height: 600px">
+  <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%;" [position]="'end'">
+    <div style="display : flex; flex-direction: column;">
+      <form [formGroup]="productForm">
+        Description: <input formControlName="description" type="text"><br>
+        <div *ngIf="productForm.get('description').invalid && (productForm.get('description').touched || productForm.get('description').dirty)" class="alert alert-danger">
+
+          <div *ngIf="productForm.get('description').errors.required">
+            NAME IS REQUIRED
+          </div>
+
+          <div *ngIf="productForm.get('description').errors.minlength">
+            NAME MUST HAVE 3 CHARACTERS MIN
+          </div>
+
+          <div *ngIf="productForm.get('description').errors.maxlength">
+            NAME MUST HAVE 5 CHARACTERS MAX
+          </div>
+
+        </div>
+
+
+        ImageURL: <input formControlName="imageURL" type="text"><br>
+        OwnerId: <input formControlName="ownerId" type="text"><br>
+        Price: <input formControlName="price" type="text"><br>
+        Title: <input formControlName="title" type="text"><br>
+      </form>
+    </div>
+
+    <button (click)="onEnviar2()">ENVIAR 2</button>
+
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" style="background: orange" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>
+
+
+<div class="row">
+  <div *ngFor="let product of products" class="row col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
+    <mat-card class="example-card">
+      <mat-card-header>
+      <mat-card-title>{{product.title}}</mat-card-title>
+      <mat-card-subtitle>{{product.price}} Bs.</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="product.imageURL" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          {{product.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>EDITAR</button>
+        <button mat-button>ELIMINAR</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+</mat-drawer-container>
+
+
+
+
 <!--EJEMPLO 1-->
 <!-- <div>
   <input type="text" [formControl]="nameControl">
@@ -7,33 +73,6 @@
 </div> -->
 
 <!--EJEMPLO 2-->
-<div style="display : flex; flex-direction: column;">
-  <form [formGroup]="productForm">
-    Description: <input formControlName="description" type="text"><br>
-    <div *ngIf="productForm.get('description').invalid && (productForm.get('description').touched || productForm.get('description').dirty)" class="alert alert-danger">
+<!--
 
-      <div *ngIf="productForm.get('description').errors.required">
-        NAME IS REQUIRED
-      </div>
-
-      <div *ngIf="productForm.get('description').errors.minlength">
-        NAME MUST HAVE 3 CHARACTERS MIN
-      </div>
-
-      <div *ngIf="productForm.get('description').errors.maxlength">
-        NAME MUST HAVE 5 CHARACTERS MAX
-      </div>
-
-    </div>
-
-
-    ImageURL: <input formControlName="imageURL" type="text"><br>
-    OwnerId: <input formControlName="ownerId" type="text"><br>
-    Price: <input formControlName="price" type="text"><br>
-    Title: <input formControlName="title" type="text"><br>
-  </form>
-</div>
-
-<button (click)="onEnviar2()">ENVIAR 2</button>
-
-
+ -->
