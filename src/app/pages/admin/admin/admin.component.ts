@@ -17,16 +17,13 @@ export class AdminComponent implements OnInit, OnDestroy {
   // nameControl = new FormControl();
 
   constructor(private formBuilder: FormBuilder, private productService: ProductService) {
-    this.productGetSubs = this.productService.getProducts().subscribe( res => {
-      // {key: 1}, {key: 2}.{key: 3}
-      // Object entries convierte JSON en un array especial como: [ [key, 1], [key, 2], [key, 3]]
-        console.log('RESPUESTA: ', Object.entries(res));
-        Object.entries(res).map(p => this.products.push(p[1]));
-      }
-    );
+
   }
 
   ngOnInit(): void {
+
+    this.loadProducts();
+
     this.productForm = this.formBuilder.group({
       description: ['', [ Validators.required, Validators.minLength(3)]],
       imageURL: '',
@@ -56,6 +53,27 @@ export class AdminComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.productSubs ? this.productSubs.unsubscribe() : '';
     this.productGetSubs ? this.productGetSubs.unsubscribe() : '';
+  }
+
+  loadProducts(): void {
+    this.products = [];
+    this.productGetSubs = this.productService.getProducts().subscribe( res => {
+      // console.log('RESPUESTA: ', Object.entries(res));
+      Object.entries(res).map((p: any) => this.products.push({id: p[0],  ...p[1]}));
+    });
+
+  }
+
+  onDelete(id: any): void {
+    this.productService.deleteProducts(id).subscribe(
+      res => {
+        console.log(res);
+        this.loadProducts();
+      },
+      err => {
+        console.log('ERROR DE SERVIDOR');
+      }
+    );
   }
 
 }
