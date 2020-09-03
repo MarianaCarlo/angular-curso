@@ -11,9 +11,12 @@ import { Subscription } from 'rxjs';
 export class AdminComponent implements OnInit, OnDestroy {
   products = [];
   productForm: FormGroup;
-  productSubs: Subscription;
 
+  productSubs: Subscription;
   productGetSubs: Subscription;
+  productDeleteSubs: Subscription;
+  productUpdateSubs: Subscription;
+  idEdit: any;
   // nameControl = new FormControl();
 
   constructor(private formBuilder: FormBuilder, private productService: ProductService) {
@@ -53,6 +56,8 @@ export class AdminComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.productSubs ? this.productSubs.unsubscribe() : '';
     this.productGetSubs ? this.productGetSubs.unsubscribe() : '';
+    this.productDeleteSubs ? this.productDeleteSubs.unsubscribe() : '';
+    this.productUpdateSubs ? this.productUpdateSubs.unsubscribe() : '';
   }
 
   loadProducts(): void {
@@ -65,7 +70,24 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   onDelete(id: any): void {
-    this.productService.deleteProducts(id).subscribe(
+    this.productDeleteSubs = this.productService.deleteProducts(id).subscribe(
+      res => {
+        console.log(res);
+        this.loadProducts();
+      },
+      err => {
+        console.log('ERROR DE SERVIDOR');
+      }
+    );
+  }
+
+  onEdit(product): void {
+    this.idEdit = product.id;
+    this.productForm.patchValue(product);
+  }
+
+  onUpdateProduct(): void {
+    this.productUpdateSubs = this.productService.updateProducts(this.idEdit, this.productForm.value).subscribe(
       res => {
         console.log(res);
         this.loadProducts();

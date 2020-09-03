@@ -5,7 +5,11 @@
   <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%;" [position]="'end'">
     <div style="display : flex; flex-direction: column;">
       <form [formGroup]="productForm">
-        Description: <input formControlName="description" type="text"><br>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" type="text">
+        </mat-form-field>
+
         <div *ngIf="productForm.get('description').invalid && (productForm.get('description').touched || productForm.get('description').dirty)" class="alert alert-danger">
 
           <div *ngIf="productForm.get('description').errors.required">
@@ -23,14 +27,32 @@
         </div>
 
 
-        ImageURL: <input formControlName="imageURL" type="text"><br>
-        OwnerId: <input formControlName="ownerId" type="text"><br>
-        Price: <input formControlName="price" type="text"><br>
-        Title: <input formControlName="title" type="text"><br>
+        <mat-form-field>
+          <mat-label>ImageURL</mat-label>
+          <input matInput formControlName="imageURL" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>OwnerId</mat-label>
+          <input matInput formControlName="ownerId" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" type="text">
+        </mat-form-field>
+
+
       </form>
     </div>
 
-    <button (click)="onEnviar2()">ENVIAR 2</button>
+    <button (click)="onEnviar2()">CREATE</button>
+    <button (click)="onUpdateProduct()">UPDATE</button>
 
   </mat-drawer>
 
@@ -55,7 +77,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>EDITAR</button>
+        <button mat-button (click)="onEdit(product); drawer.toggle()">EDITAR</button>
         <button mat-button (click)="onDelete(product.id)">ELIMINAR</button>
       </mat-card-actions>
     </mat-card>
