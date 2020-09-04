@@ -4,6 +4,8 @@
 <mat-drawer-container class="example-container" style="width: 100%; height: 600px">
   <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%;" [position]="'end'">
     <div style="display : flex; flex-direction: column;">
+      <h4><span class="badge badge-success">Crear platos & editar platos</span></h4>
+
       <form [formGroup]="plateForm">
         <mat-form-field>
           <mat-label>Name</mat-label>
@@ -57,7 +59,7 @@
     </div>
 
 
-    <button (click)="onCreatePlate()">CREATE</button>
+    <button (click)="onCreatePlate(); refresh();">CREATE</button>
     <button (click)="onUpdatePlate()">UPDATE</button>
   </mat-drawer>
 
@@ -67,13 +69,14 @@
     </button>
   </div>
 
+
   <h1>NACIONAL</h1>
   <div class="row">
     <div *ngFor="let plate of nacional" class="row col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
-      <mat-card class="example-card" [style.background]="plate.stock === 0 ? 'red' : 'orange'">
+      <mat-card class="example-card" [ngStyle]="{'background': plate.stock==0 ? 'red' : 'orange'}">
         <mat-card-header>
         <mat-card-title>{{plate.name | uppercase}}</mat-card-title>
-        <mat-card-subtitle>Precio: {{plate.price}} Bs.</mat-card-subtitle>
+        <mat-card-subtitle>Precio: {{plate.price}} {{plate.type | test}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image [src]="plate.urlImage" alt="Photo of a Shiba Inu">
         <mat-card-content>
@@ -92,10 +95,10 @@
   <h1>INTERNACIONAL</h1>
   <div class="row">
     <div *ngFor="let plate of internacional" class="row col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
-      <mat-card class="example-card" [style.background]="plate.stock === 0 ? 'red' : 'orange'">
+      <mat-card class="example-card" [ngStyle]="{'background': plate.stock==0 ? 'red' : 'orange'}">
         <mat-card-header>
         <mat-card-title>{{plate.name | uppercase}}</mat-card-title>
-        <mat-card-subtitle>Precio: {{plate.price}} $</mat-card-subtitle>
+        <mat-card-subtitle>Precio: {{plate.price}} {{plate.type | test}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image [src]="plate.urlImage" alt="Photo of a Shiba Inu">
         <mat-card-content>

@@ -1,3 +1,4 @@
+import { TestPipe } from './../pipes/test.pipe';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,7 +15,7 @@ import { PedidosyaComponent } from './pedidosya/pedidosya.component';
 
 
 @NgModule({
-  declarations: [PedidosyaComponent],
+  declarations: [PedidosyaComponent, TestPipe],
   imports: [
     ReactiveFormsModule,
     CommonModule,

@@ -29,7 +29,7 @@ export class PedidosyaComponent implements OnInit, OnDestroy {
       name: ['', [ Validators.required, Validators.minLength(3)]],
       price: '',
       stock: '',
-      type: '',
+      type: ['', [ Validators.required]],
       urlImage: ''
     });
   }
@@ -87,6 +87,9 @@ export class PedidosyaComponent implements OnInit, OnDestroy {
     );
   }
 
+  refresh(): void {
+    window.location.reload();
+  }
 
   ngOnDestroy(): void {
     this.plateGetSubs ? this.plateGetSubs.unsubscribe() : '';

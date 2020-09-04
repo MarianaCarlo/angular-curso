@@ -5,8 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TestPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    return 'Hi ' + value;
+  transform(value: string): any {
+    if (value === 'internacional'){
+      return '$';
+    } else if (value === 'nacional'){
+      return 'Bs.';
+    } else {
+      return 'nin';
+    }
   }
 
 }
