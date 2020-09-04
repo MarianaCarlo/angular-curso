@@ -12,6 +12,7 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {MatSliderModule} from '@angular/material/slider';
 import {MatIconModule} from '@angular/material/icon';
+import { PedidosyaModule } from './pedidosya/pedidosya.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {MatIconModule} from '@angular/material/icon';
     NgbModule,
     MatSliderModule,
     MatIconModule,
+    PedidosyaModule,
   ],
   bootstrap: [AppComponent]
 })
