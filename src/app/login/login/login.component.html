@@ -1,85 +1,36 @@
 <p>login works!</p>
 
-<!--EJEMPLO 1-->
-<!-- <div style="display : flex; flex-direction: column;">
-  <input type="text" [(ngModel)]="username">
-  <input type="password" [(ngModel)]="password">
-</div>
+<mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>LOGIN</mat-card-title>
+      </mat-card-header>
 
-<button (click)="onLogin();">LOGIN</button>
--->
+      <mat-card-content>
+        <form #form="ngForm" style="display: flex; flex-direction: column;">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="text" #emailUI="ngModel" required ngModel name="email">
+          </mat-form-field>
 
+          <div *ngIf="emailUI.invalid && (emailUI.touched || emailUI.dirty)" class="alert alert-danger">
+            <div *ngIf="emailUI.errors.required">
+              NAME IS REQUIRED
+            </div>
+          </div>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" #passwordUI="ngModel" required name="password" ngModel>
+          </mat-form-field>
 
+          <div *ngIf="passwordUI.invalid && (passwordUI.touched || passwordUI.dirty)" class="alert alert-danger">
+            <div *ngIf="passwordUI.errors.required">
+              PASSWORD IS REQUIRED
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button [disabled]="form.invalid" (click)="onLogin(form)">Log in</button>
+      </mat-card-actions>
+    </mat-card>
 
-<!--EJEMPLO 2-->
-<!-- <div style="display : flex; flex-direction: column;">
-  <form #form="ngForm">
-  <input type="text" name="username" ngModel>
-  <input type="password"name="password" ngModel>
-  </form>
-</div>
-<button (click)="onLogin2(form)">LOGIN 2</button> -->
-
-
-
-<!--EJEMPLO 3-->
-<!-- <div style="display : flex; flex-direction: column;">
-  <form (ngSubmit)="onLogin2(form)"  #form="ngForm">
-  Username:<input type="text" name="username" ngModel><br>
-  Password:<input type="password"name="password" ngModel><br>
-  <button type="submit">ENVIAR</button>
-  </form>
-</div> -->
-
-<input class="form-control" type="text" required minlength="3" maxlength="5" #name="ngModel" ngModel>
-
-<div *ngIf="name.invalid && (name.touched || name.dirty)" class="alert alert-danger">
-
-  <div *ngIf="name.errors.required">
-    NAME IS REQUIRED
-  </div>
-
-  <div *ngIf="name.errors.minlength">
-    NAME MUST HAVE 3 CHARACTERS MIN
-  </div>
-
-  <div *ngIf="name.errors.maxlength">
-    NAME MUST HAVE 5 CHARACTERS MAX
-  </div>
-
-</div>
-
-
-
-<!--
-<button type="button"  style="border: 4px solid orange" class="btn btn-outline-warning"
-routerLink="/pages">LOGIN</button>
--->
-
-<br>
-<br>
-
-<!-- <button (click)="sw=!sw">Switch</button>
-<p>{{sw}}</p>
-<p *ngElse ="sw">SE MUESTRA SI ES FALSO</p> -->
-
-<!--
-<div *ngIf="1 === 1">
-  HOLA
-</div>
-<ng-template [ngIf]="1 === 1">
-  HOLA
-</ng-template>
--->
-<!--
-<ng-container *ngFor="let item of [1,2,3,4]">
-  <p>item container</p>
-</ng-container>
-
-<div *ngFor="let item of [1,2,3,4]">
-  <p>item div</p>
-</div>
-
-<app-test>
-  <button>hola</button>
-</app-test>-->
