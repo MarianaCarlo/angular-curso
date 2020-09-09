@@ -1,3 +1,7 @@
+
+import { HttpClientModule } from '@angular/common/http';
+
+
 import { Routes, RouterModule } from '@angular/router';
 import { NgFocusDirective } from './shared/directives/ng-focus.directive';
 import { NgColorDirective } from './shared/directives/ng-color.directive';
@@ -27,8 +31,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule,
     NgbModule,
     MatSliderModule,
     MatIconModule,

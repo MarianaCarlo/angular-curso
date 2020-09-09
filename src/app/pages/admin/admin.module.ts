@@ -2,7 +2,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductService } from './../../shared/services/product.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -23,7 +22,6 @@ const routes: Routes = [
   imports: [
     ReactiveFormsModule,
     CommonModule,
-    HttpClientModule,
     MatSidenavModule,
     MatButtonModule,
     MatCardModule,

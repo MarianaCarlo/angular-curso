@@ -1,5 +1,4 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
@@ -29,7 +28,6 @@ const routes: Routes = [
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    HttpClientModule,
     RouterModule.forChild(routes)
   ],
   providers: [
