@@ -1,5 +1,6 @@
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { Routes, RouterModule } from '@angular/router';
@@ -37,6 +38,13 @@ const routes: Routes = [
     MatSliderModule,
     MatIconModule,
     RouterModule.forRoot(routes)
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   exports: [RouterModule],
   bootstrap: [AppComponent]
