@@ -1,4 +1,5 @@
-import { ProductService } from './../../../services/product.service';
+import { ProductService } from './../../shared/services/product.service';
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void{
+    // tslint:disable-next-line: no-unused-expression
     this.productSubs ? this.productSubs.unsubscribe() : '';
   }
 
