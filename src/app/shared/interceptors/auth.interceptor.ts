@@ -17,13 +17,18 @@ export class AuthInterceptor implements HttpInterceptor {
     console.log('REQUEST: ', request);
     if (token){
       request = request.clone({
-        url: `${request.url}`
-        // setHeaders: {
-        //   Authorization: 'Bearer ' + token
-        // }
+        url: `${request.url}?auth=${token}`
       });
 
     }
+
+     /*if (token) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: 'Bearer ' + token
+        }
+      });
+    }*/
 
     return next.handle(request);
   }
