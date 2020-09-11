@@ -1,3 +1,4 @@
+import { AuthService } from './shared/services/auth.service';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
@@ -45,6 +46,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
+    AuthService,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,

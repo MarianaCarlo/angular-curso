@@ -1,3 +1,4 @@
+import { AuthService } from './../../shared/services/auth.service';
 import { ProductService } from './../../shared/services/product.service';
 
 
@@ -21,7 +22,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   idEdit: any;
   // nameControl = new FormControl();
 
-  constructor(private formBuilder: FormBuilder, private productService: ProductService) {
+  constructor(private formBuilder: FormBuilder, private productService: ProductService, private authService: AuthService) {
 
   }
 
@@ -48,7 +49,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
     this.productSubs = this.productService.addProducts({
         ...this.productForm.value,
-        ownerId: localStorage.getItem('userId')
+        ownerId: this.authService.getUserId()
       }
     ).subscribe(res => {
       console.log('RSPUESTA: ', res);
@@ -68,7 +69,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   loadProducts(): void {
     this.products = [];
-    const userId = localStorage.getItem('userId');
+    const userId = this.authService.getUserId();
     this.productGetSubs = this.productService.getProductsById(userId).subscribe( res => {
       // console.log('RESPUESTA: ', Object.entries(res));
       Object.entries(res).map((p: any) => this.products.push({id: p[0],  ...p[1]}));
@@ -98,7 +99,7 @@ export class AdminComponent implements OnInit, OnDestroy {
       this.idEdit,
         {
           ...this.productForm.value,
-          ownerId: localStorage.getItem('userId')
+          ownerId: this.authService.getUserId()
         }
       ).subscribe(
       res => {

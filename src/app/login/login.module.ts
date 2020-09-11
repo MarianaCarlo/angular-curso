@@ -9,7 +9,6 @@ import { NgElseDirective } from './../shared/directives/ng-else.directive';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
-import { AuthService } from './../shared/services/auth.service';
 
 const routes: Routes = [
   {path: '', component: LoginComponent}
@@ -31,7 +30,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   providers: [
-    AuthService
+
   ],
   exports: [RouterModule]
 })

@@ -16,6 +16,9 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
+    if (this.authService.verifyLogged()) {
+      this.router.navigate(['pages']);
+    }
   }
 
 
@@ -30,7 +33,7 @@ export class LoginComponent implements OnInit {
     ).subscribe(
     res => {
       console.log('LOGIN RESPONSE: ', res);
-      this.router.navigate(['/pages']);
+      this.router.navigate(['pages']);
 
     },
       err => {
@@ -42,7 +45,7 @@ export class LoginComponent implements OnInit {
 
   onLogin2(form): void{
     console.log('VARIABLE LOCAL FORM: ', form.value);
-    this.router.navigate(['/pages']);
+    this.router.navigate(['pages']);
   }
 
 }
