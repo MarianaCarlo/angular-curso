@@ -30,7 +30,11 @@
     "rxjs": "6.5.5",
     "tslib": "2.0.1",
     "typescript": ">=3.9 <4.0",
-    "zone.js": "0.10.3"
+    "zone.js": "0.10.3",
+
+    "@ngrx/store": "^10.0.0",
+    "@ngrx/effects": "^10.0.0"
+
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.5",
@@ -50,6 +54,11 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.9.5"
+    "typescript": "~3.9.5",
+
+    "@ngrx/store-devtools": "^10.0.0",
+
+    "ngrx-store-logger": "^0.2.4",
+    "ngrx-store-freeze": "^0.2.4"
   }
 }
