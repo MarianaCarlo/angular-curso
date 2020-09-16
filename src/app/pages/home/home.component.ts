@@ -14,10 +14,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   // damy data
   products = [];
   productSubs: Subscription;
+  homeSubs: Subscription;
+
+  cart = [];
 
   constructor(private productService: ProductService, private store: Store<any>) { }
 
   ngOnInit(): void {
+    this.homeSubs = this.store.select(s => s.home).subscribe(res => {
+      console.log('HOMEEEEEEE', res);
+      this.cart = Object.assign([], res.items);
+    });
+
     this.productSubs = this.productService.getProducts().subscribe( res => {
       // {key: 1}, {key: 2}.{key: 3}
       // Object entries convierte JSON en un array especial como: [ [key, 1], [key, 2], [key, 3]]
@@ -31,10 +39,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void{
     // tslint:disable-next-line: no-unused-expression
     this.productSubs ? this.productSubs.unsubscribe() : '';
+    this.homeSubs ? this.homeSubs.unsubscribe() : '';
   }
 
   onComprar(product): void {
-    this.store.dispatch(AddProduct({product: {productInfo: product}}));
+    this.store.dispatch(AddProduct({product: Object.assign({}, product)}));
   }
 
 }
