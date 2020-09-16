@@ -33,8 +33,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.productSubs ? this.productSubs.unsubscribe() : '';
   }
 
-  onComprar(): void {
-    this.store.dispatch(AddProduct({product: 'hola'}));
+  onComprar(product): void {
+    this.store.dispatch(AddProduct({product: {productInfo: product}}));
   }
 
 }
