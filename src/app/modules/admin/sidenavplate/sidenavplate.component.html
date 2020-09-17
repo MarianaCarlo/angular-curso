@@ -1,1 +1,69 @@
-<p>sidenavplate works!</p>
+
+<mat-drawer-container class="example-container" style="width: 100%; height: 600px">
+  <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%;" [position]="'end'">
+    <div style="display : flex; flex-direction: column;">
+      <h4><span class="badge badge-success">Crear platos & editar platos</span></h4>
+
+      <form [formGroup]="plateForm">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" type="text">
+        </mat-form-field>
+
+        <div *ngIf="plateForm.get('name').invalid && (plateForm.get('name').touched || plateForm.get('name').dirty)" class="alert alert-danger">
+
+          <div *ngIf="plateForm.get('name').errors.required">
+            NAME IS REQUIRED
+          </div>
+
+          <div *ngIf="plateForm.get('name').errors.minlength">
+            NAME MUST HAVE 3 CHARACTERS MIN
+          </div>
+
+        </div>
+
+        <mat-form-field>
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Stock</mat-label>
+          <input matInput formControlName="stock" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <input matInput formControlName="type" type="text">
+        </mat-form-field>
+
+        <div *ngIf="plateForm.get('type').invalid && (plateForm.get('type').touched || plateForm.get('type').dirty)" class="alert alert-danger">
+
+          <div *ngIf="plateForm.get('type').errors.required">
+            THIS FIELD MUST BE FILLED
+          </div>
+
+        </div>
+
+
+        <mat-form-field>
+          <mat-label>UrlImage</mat-label>
+          <input matInput formControlName="urlImage" type="text">
+        </mat-form-field>
+
+
+
+      </form>
+    </div>
+
+
+    <button (click)="onCreatePlate(); refresh();">CREATE</button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" style="background: orange" mat-button (click)="drawer.toggle();">
+      Create plate
+    </button>
+  </div>
+
+</mat-drawer-container>
