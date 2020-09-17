@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { reducers } from './core';
 import { MatSliderModule } from '@angular/material/slider';
 import { environment } from './../environments/environment';
@@ -49,10 +50,11 @@ const routes: Routes = [
     NgbModule,
     MatSliderModule,
     MatIconModule,
-    RouterModule.forRoot(routes),
+
+    AppRoutingModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({name: 'Angular Course', logOnly: environment.production})
+    StoreDevtoolsModule.instrument({name: 'Tercer Examen', logOnly: environment.production})
   ],
   providers: [
     AuthService,
