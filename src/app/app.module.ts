@@ -4,15 +4,10 @@ import { MatSliderModule } from '@angular/material/slider';
 import { environment } from './../environments/environment';
 import { metaReducers } from './core/meta';
 import { AuthService } from './shared/services/auth.service';
-import { AuthGuard } from './shared/guards/auth.guard';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
-
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
 import { Routes, RouterModule } from '@angular/router';
-import { NgFocusDirective } from './shared/directives/ng-focus.directive';
-import { NgColorDirective } from './shared/directives/ng-color.directive';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,21 +22,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
-  {
-    path: 'pages',
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
-    canActivate: [AuthGuard]
-  }
-];
-
 @NgModule({
   declarations: [
-    AppComponent,
-    NgColorDirective,
-    NgFocusDirective
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +41,6 @@ const routes: Routes = [
   ],
   providers: [
     AuthService,
-    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.authService.getToken();
-    console.log('REQUEST: ', request);
+    console.log('REQUESTTTTTT: ', request);
     if (token){
       request = request.clone({
         url: request.url.indexOf('?') > -1 ? `${request.url}&auth=${token}` : `${request.url}?auth=${token}`
@@ -25,27 +25,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     }
 
-     /*if (token) {
-      request = request.clone({
-        setHeaders: {
-          Authorization: 'Bearer ' + token
-        }
-      });
-    }*/
-
-    return next.handle(request).pipe(
-      catchError((err: HttpErrorResponse) => {
-        if (err.status === 401){
-          this.handleError();
-        }
-        return throwError('Error');
-      })
-    );
-  }
-
-  private handleError(): Observable<any> {
-    this.authService.logout();
-    return throwError('ERROR 401');
+    return next.handle(request);
   }
 
 }
