@@ -1,5 +1,10 @@
 <p>cardplate works!</p>
 <app-sidenavplate></app-sidenavplate>
+<div style="background: blue; font-size: 25px;">
+  <p>Total Stock: {{stockTotal()}}</p>
+  <p>Total nacional: {{nationalTotal()}}</p>
+  <p>Total nacional: {{internationalTotal()}}</p>
+</div>
 <h1>NACIONAL</h1>
   <div class="row">
     <div *ngFor="let plate of nacional" class="row col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">

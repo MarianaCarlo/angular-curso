@@ -98,4 +98,21 @@ export class CardplateComponent implements OnInit, OnDestroy {
     this.plateDeleteSubs ? this.plateDeleteSubs.unsubscribe() : '';
   }
 
+  stockTotal(): number {
+    let aux = 0;
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.plates.length; i++) {
+      aux = aux + this.plates[i].stock;
+    }
+    return aux;
+  }
+
+  nationalTotal(): number {
+    return this.nacional.length;
+  }
+
+  internationalTotal(): number {
+    return this.internacional.length;
+  }
+
 }
