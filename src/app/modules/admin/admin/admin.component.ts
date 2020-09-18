@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { PedidosyaService } from './../../../shared/services/pedidosya.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-admin',
@@ -22,6 +22,8 @@ export class AdminComponent implements OnInit {
   nacional = [];
   internacional = [];
   totalS: number;
+
+  @Output() datos = new EventEmitter();
 
   total: number;
 
@@ -89,9 +91,19 @@ export class AdminComponent implements OnInit {
   internationalTotal(): number {
     return this.internacional.length;
   }
+
   public onReporte(): void {
     this.store.dispatch(ShowPlates({totalStock: this.totalS, totalNacional:
       this.nacional.length, totalInternacional: this.internacional.length}));
+    this.saveData();
   }
 
+  // tslint:disable-next-line: typedef
+  saveData(){
+    this.datos.emit({
+      totalStock: this.totalS,
+      totalNacional: this.nacional.length,
+      totalInternacional: this.internacional.length
+    });
+  }
 }
