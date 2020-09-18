@@ -1,11 +1,17 @@
-<p>cardplate works!</p>
+<form (submit)="onSubmit()">
+  <input [(ngModel)]="search" name="search" placeholder="plate for search" style="margin-right: 10px;">
+  <button type="submit"  style="background-color: rgb(108, 108, 238); font-size: 20px;">search</button>
+</form>
+<br>
+
 <app-sidenavplate></app-sidenavplate>
 <div style="background: blue; font-size: 25px;">
 </div>
 <h1>NACIONAL</h1>
   <div class="row">
+    <div></div>
     <div *ngFor="let plate of nacional" class="row col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
-      <mat-card class="example-card" [ngStyle]="{'background': plate.stock==0 ? 'red' : 'orange'}">
+      <mat-card *ngIf="(searchValue==null || plate.name.includes(searchValue) )" class="example-card" [ngStyle]="{'background': plate.stock==0 ? 'red' : 'orange'}">
         <mat-card-header>
         <mat-card-title>Name: {{plate.name | uppercase}}</mat-card-title>
         <mat-card-subtitle>Price: {{plate.price}} {{plate.type | money}}</mat-card-subtitle>
@@ -27,7 +33,7 @@
   <h1>INTERNACIONAL</h1>
   <div class="row">
     <div *ngFor="let plate of internacional" class="row col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
-      <mat-card class="example-card" [ngStyle]="{'background': plate.stock==0 ? 'red' : 'orange'}">
+      <mat-card *ngIf="(searchValue==null || plate.name.includes(searchValue) )" class="example-card" [ngStyle]="{'background': plate.stock==0 ? 'red' : 'orange'}">
         <mat-card-header>
         <mat-card-title>{{plate.name | uppercase}}</mat-card-title>
         <mat-card-subtitle>Precio: {{plate.price}} {{plate.type | money}}</mat-card-subtitle>

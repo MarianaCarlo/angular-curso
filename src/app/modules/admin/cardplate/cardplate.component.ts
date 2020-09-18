@@ -11,6 +11,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class CardplateComponent implements OnInit, OnDestroy {
 
   plateForm: FormGroup;
+  searchValue = '';
 
   plates = [];
   nacional = [];
@@ -19,6 +20,8 @@ export class CardplateComponent implements OnInit, OnDestroy {
   plateCreateSubs: Subscription;
   plateUpdateSubs: Subscription;
   plateDeleteSubs: Subscription;
+
+  search = '';
 
   idEdit: any;
   constructor(private pedidosyaService: PedidosyaService, private formBuilder: FormBuilder) { }
@@ -113,6 +116,12 @@ export class CardplateComponent implements OnInit, OnDestroy {
 
   internationalTotal(): number {
     return this.internacional.length;
+  }
+
+  onSubmit() {
+    this.searchValue = this.search.toLowerCase();
+    console.log('RES: ', this.search);
+    this.loadPlates();
   }
 
 }

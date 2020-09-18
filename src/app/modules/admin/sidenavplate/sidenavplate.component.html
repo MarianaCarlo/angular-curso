@@ -1,11 +1,11 @@
 
-<mat-drawer-container class="example-container" style="width: 100%; height: 600px">
+<mat-drawer-container class="example-container" style="width: 100%; height: 300px">
   <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%;" [position]="'end'">
     <div style="display : flex; flex-direction: column;">
-      <h4><span class="badge badge-success">Crear platos & editar platos</span></h4>
+      <h6><span class="badge badge-success">Crear platos</span></h6>
 
       <form [formGroup]="plateForm">
-        <mat-form-field>
+        <mat-form-field style="margin-bottom: -20px;">
           <mat-label>Name</mat-label>
           <input matInput formControlName="name" type="text">
         </mat-form-field>
@@ -22,17 +22,17 @@
 
         </div>
 
-        <mat-form-field>
+        <mat-form-field style="margin-bottom: -20px;">
           <mat-label>Price</mat-label>
           <input matInput formControlName="price" type="text">
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field style="margin-bottom: -20px;">
           <mat-label>Stock</mat-label>
           <input matInput formControlName="stock" type="text">
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field style="margin-bottom: -20px;">
           <mat-label>Type</mat-label>
           <input matInput formControlName="type" type="text">
         </mat-form-field>

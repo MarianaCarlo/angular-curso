@@ -1,3 +1,4 @@
+import { AuthService } from './../../../shared/services/auth.service';
 import { ShowPlates } from './../header/store/header.actions';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -12,7 +13,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private pedidosyaService: PedidosyaService, private formBuilder: FormBuilder, private store: Store<any>) { }
+  constructor(private pedidosyaService: PedidosyaService, private formBuilder: FormBuilder,
+  private store: Store<any>, private authService: AuthService) { }
+
+  search = '';
 
   plateForm: FormGroup;
   plateCreateSubs: Subscription;
@@ -106,4 +110,11 @@ export class AdminComponent implements OnInit {
       totalInternacional: this.internacional.length
     });
   }
+
+  onSearch(): void {
+    console.log('FORM: ', this.plates);
+  }
+
+
+
 }
