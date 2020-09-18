@@ -112,4 +112,8 @@ export class AdminComponent implements OnInit, OnDestroy {
     );
   }
 
+  refresh(): void {
+    window.location.reload();
+  }
+
 }

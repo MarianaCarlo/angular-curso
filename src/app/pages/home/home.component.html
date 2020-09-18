@@ -16,15 +16,15 @@
 
   </mat-drawer>
 
-  <div class="example-sidenav-content">
-    <button type="button" style="background: orange" mat-button (click)="drawer.toggle()">
-      Add to cart <i class="fas fa-cart-plus"></i>
+  <div class="example-sidenav-content" style="margin-top: 20px; margin-left: 10px;">
+    <button type="button" style="background: orange; padding-top: 15px; padding-bottom: 15px;" mat-button (click)="drawer.toggle()">
+      <i class="fas fa-cart-plus fa-5x"></i>Add to cart
     </button>
   </div>
 
 <div class="row">
   <div *ngFor="let product of products" class="row col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
-    <mat-card class="example-card">
+    <mat-card class="example-card text-black bg-primary123 mb-3">
       <mat-card-header>
       <mat-card-title>{{product.title}}</mat-card-title>
       <mat-card-subtitle>{{product.price}} Bs.</mat-card-subtitle>
@@ -36,7 +36,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)="onComprar(product)">COMPRAR</button>
+        <button mat-button style="background-color: #DED5D3;" (click)="onComprar(product)">COMPRAR</button>
       </mat-card-actions>
     </mat-card>
   </div>
