@@ -53,7 +53,26 @@ export class AdminComponent implements OnInit, OnDestroy {
       }
     ).subscribe(res => {
       console.log('RSPUESTA: ', res);
+      this.loadProducts();
     },
+      err => {
+        console.log('ERROR DE SERVIDOR');
+      }
+    );
+  }
+
+  onUpdateProduct(): void {
+    this.productUpdateSubs = this.productService.updateProducts(
+      this.idEdit,
+        {
+          ...this.productForm.value,
+          ownerId: this.authService.getUserId()
+        }
+      ).subscribe(
+      res => {
+        console.log(res);
+        this.loadProducts();
+      },
       err => {
         console.log('ERROR DE SERVIDOR');
       }
@@ -94,23 +113,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.productForm.patchValue(product);
   }
 
-  onUpdateProduct(): void {
-    this.productUpdateSubs = this.productService.updateProducts(
-      this.idEdit,
-        {
-          ...this.productForm.value,
-          ownerId: this.authService.getUserId()
-        }
-      ).subscribe(
-      res => {
-        console.log(res);
-        this.loadProducts();
-      },
-      err => {
-        console.log('ERROR DE SERVIDOR');
-      }
-    );
-  }
+
 
   refresh(): void {
     window.location.reload();

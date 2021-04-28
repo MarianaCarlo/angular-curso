@@ -1,58 +1,59 @@
-
-
-  <mat-card class="example-card">
+<mat-card class="example-card">
     <div class="d-flex justify-content-center">
-      <div class="brand_logo_container">
-        <img src="https://seeklogo.com/images/P/pedidosya-logo-A90F6F004F-seeklogo.com.png" class="brand_logo" alt="Logo">
-      </div>
+        <div class="brand_logo_container">
+            <img src="https://seeklogo.com/images/P/pedidosya-logo-A90F6F004F-seeklogo.com.png" class="brand_logo" alt="Logo">
+        </div>
     </div>
     <br>
-    <mat-card-header >
-      <mat-card-title class="example">LOGIN</mat-card-title>
+    <mat-card-header>
+        <mat-card-title class="example">LOGIN</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
-      <form #form="ngForm" style="display: flex; flex-direction: column;">
-        <div class="input-group-append">
-          <span class="input-group-text"><i class="fas fa-user"></i></span>
-        </div>
-        <mat-form-field>
+        <form #form="ngForm" style="display: flex; flex-direction: column;">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <mat-form-field>
 
-          <mat-label>Email</mat-label>
-          <input matInput type="text" #emailUI="ngModel" required ngModel name="email">
-        </mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput type="text" #emailUI="ngModel" required ngModel name="email">
+            </mat-form-field>
 
-        <div *ngIf="emailUI.invalid && (emailUI.touched || emailUI.dirty)" class="alert alert-danger">
-          <div *ngIf="emailUI.errors.required">
-            NAME IS REQUIRED
-          </div>
-        </div>
-        <div class="input-group-append">
-          <span class="input-group-text"><i class="fas fa-key"></i></span>
-        </div>
-        <mat-form-field>
+            <div *ngIf="emailUI.invalid && (emailUI.touched || emailUI.dirty)" class="alert alert-danger">
+                <div *ngIf="emailUI.errors.required">
+                    NAME IS REQUIRED
+                </div>
+            </div>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <mat-form-field>
 
-          <mat-label>Password</mat-label>
-          <input matInput type="password" #passwordUI="ngModel" required name="password" ngModel>
-        </mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" #passwordUI="ngModel" required name="password" ngModel>
+            </mat-form-field>
 
-        <div *ngIf="passwordUI.invalid && (passwordUI.touched || passwordUI.dirty)" class="alert alert-danger">
-          <div *ngIf="passwordUI.errors.required">
-            PASSWORD IS REQUIRED
-          </div>
+            <div *ngIf="passwordUI.invalid && (passwordUI.touched || passwordUI.dirty)" class="alert alert-danger">
+                <div *ngIf="passwordUI.errors.required">
+                    PASSWORD IS REQUIRED
+                </div>
+            </div>
+        </form>
+        <div class="redirectToLogin">
+            <span>Not registered yet?<span class="redirect" routerLink="register"> Register</span></span>
         </div>
-      </form>
+        <div class="forgotPassword">
+
+            <span routerLink="/register">Not registered yet? Register</span>
+        </div>
+
     </mat-card-content>
     <mat-card-actions>
-      <div class="d-flex justify-content-center mt-3 login_container">
-        <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid" (click)="onLogin(form)">Login</button>
-      </div>
+        <div class="d-flex justify-content-center mt-3 login_container">
+            <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid" (click)="onLogin(form)">Login</button>
+        </div>
     </mat-card-actions>
 </mat-card>
 
-
-
-
-
-
-
+<router-outlet></router-outlet>

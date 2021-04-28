@@ -3,7 +3,11 @@ import { MatSliderModule } from '@angular/material/slider';
 import { environment } from './../environments/environment';
 import { metaReducers } from './core/meta';
 import { AuthService } from './shared/services/auth.service';
+import { AuthhhService } from './shared/services/authhh.service';
+
 import { AuthGuard } from './shared/guards/auth.guard';
+import { AuthhhGuard } from './shared/guards/authhh.guard';
+
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -26,9 +30,29 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegisterService } from './shared/services/register.service';
+
 const routes: Routes = [
+  /*
+  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthhhGuard] },
+  */
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
+  {path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule)},
   {
     path: 'pages',
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
@@ -36,11 +60,17 @@ const routes: Routes = [
   }
 ];
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NgColorDirective,
-    NgFocusDirective
+    NgFocusDirective,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +82,15 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({name: 'Angular Course', logOnly: environment.production})
+    StoreDevtoolsModule.instrument({name: 'Angular Course', logOnly: environment.production}),
+
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [
+    AuthhhService,
+    RegisterService,
     AuthService,
     AuthGuard,
     {

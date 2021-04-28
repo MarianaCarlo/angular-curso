@@ -9,9 +9,13 @@ import { NgElseDirective } from './../shared/directives/ng-else.directive';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
+import { RegisterService } from '../shared/services/register.service';
+import { AuthhhService } from '../shared/services/authhh.service';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent}
+  {
+    path: '', component: LoginComponent
+  }
 ];
 
 @NgModule({
@@ -30,7 +34,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   providers: [
-
+    RegisterService,
   ],
   exports: [RouterModule]
 })

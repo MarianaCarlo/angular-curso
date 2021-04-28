@@ -3,6 +3,8 @@ import { AuthService } from './../shared/services/auth.service';
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthhhService } from '../shared/services/authhh.service';
+import { RegisterService } from '../shared/services/register.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   sw = true;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, public ngAuthService: RegisterService) { }
 
   ngOnInit(): void {
     if (this.authService.verifyLogged()) {

@@ -4,6 +4,12 @@
 
 export const environment = {
   production: false,
+  firebase: {
+    apiKey: "AIzaSyCcEM8pkhEoLPo9WaCNkqip2BTVDr6wghM",
+    authDomain: "course-angular-upb.firebaseapp.com",
+    databaseURL: "https://course-angular-upb.firebaseio.com",
+    projectId: "course-angular-upb",
+  },
   app: {
     apiBaseUrl: 'https://course-angular-upb.firebaseio.com'
   },
